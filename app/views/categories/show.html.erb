@@ -1,0 +1,34 @@
+<section>
+
+	<% @category.links.each do |l| %>
+
+		<div class="link">
+			
+			<div class="details">
+				<h3><%= link_to l.name, l.url %></h3>
+				<p><%= l.description %></p>
+				<p><%= link_to l.url, l.url %></p>
+			</div>
+
+			<div class="actions">
+				<%= link_to "Edit", edit_category_link_path(@category, l), class: "edit" %>
+
+				<%= link_to "Duplicate", new_category_link_path(@category, duplicate_id: l.id),
+					class: "edit" %>
+
+				<%= link_to "Delete", category_link_path(@category, l), 
+					method: :delete, class: "delete", 
+					confirm: "Are you sure you want to delete?" %>
+
+
+			</div>
+
+		</div>
+	
+	<% end %>
+
+</section>
+
+<%= link_to "Add new link", new_category_link_path(@category), class: "button" %>
+
+<%= link_to "Back to the categories", root_path, class: "button" %>

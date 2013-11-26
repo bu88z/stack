@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Stack</title>
+		<%= stylesheet_link_tag		"application", media: "all", "data-turbolinks-track" => true %>
+		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+
+		<header>
+			<%= link_to image_tag("/assets/stack-logo.png"), "#" %> Resources
+		</header>
+
+		<% flash.each do |key, value| %>
+			<div class="flash <%= key %>"><%= value %></div>
+		<% end %>
+
+		<%= yield %>
+
+		<footer>
+			Stack is a list of resources that makes learning to code easier.
+		</footer>
+
+	</body>
+</html>
