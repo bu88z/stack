@@ -51,7 +51,7 @@ before_action :get_link, only: [:edit, :update, :destroy]
 
   # to stop people hacking our site, only allow the following from the form
   def link_params
-  	params.require(:link).permit(:name, :description, :url)
+  	params.require(:link).permit(:name, :description, :url, :is_recommended)
   end
 
   def get_category

@@ -7,7 +7,12 @@
 			<div class="details">
 				<h3><%= link_to l.name, l.url %></h3>
 				<p><%= l.description %></p>
-				<p><%= link_to l.url, l.url %></p>
+				<p><%= link_to l.nice_url, l.url %>
+
+					<% if l.is_recommended? %>
+						<span> - Highly recommended </span>
+					<% end %>
+				</p>
 			</div>
 
 			<div class="actions">
@@ -19,7 +24,6 @@
 				<%= link_to "Delete", category_link_path(@category, l), 
 					method: :delete, class: "delete", 
 					confirm: "Are you sure you want to delete?" %>
-
 
 			</div>
 
